@@ -1,13 +1,18 @@
 package hellojpa;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.util.Date;
 
 @Entity
+
 public class Member {
 
-    @Id
+    @Id @GeneratedValue(strategy = GenerationType.TABLE,
+            generator = "MEMBER_SEQ_GENERATOR")
     private Long id;
+
     private String name;
 
     public Long getId() {
@@ -25,10 +30,4 @@ public class Member {
     public void setName(String name) {
         this.name = name;
     }
-
-    public Member(Long id, String name) {
-        this.id = id;
-        this.name = name;
-    }
-    protected Member(){}
 }
