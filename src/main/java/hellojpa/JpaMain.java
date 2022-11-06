@@ -17,17 +17,28 @@ public class JpaMain {
         tx.begin();
 
         try{
-            Member member = new Member();
-            member.setName("B");
-            Member member2 = new Member();
-            member2.setName("C");
-            Member member3 = new Member();
-            member3.setName("C");
 
             System.out.println("=============================");
+
+
+            Team team = new Team();
+            team.setName("TeamA");
+            em.persist(team);
+
+            Member member = new Member();
+            member.setUsername("member1");
+            member.changeTeam(team);
             em.persist(member);
-            em.persist(member2);
-            em.persist(member3);
+
+//
+//            em.flush();
+//            em.clear();
+
+            Team findTeam = em.find(Team.class, team.getId());
+            List<Member> members = findTeam.getMembers();
+
+
+
 
 
             System.out.println("=============================");
