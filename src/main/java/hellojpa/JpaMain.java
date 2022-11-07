@@ -20,25 +20,19 @@ public class JpaMain {
 
             System.out.println("=============================");
 
+            Movie movie = new Movie();
+            movie.setDirector("a");
+            movie.setActor("b");
+            movie.setName("C");
+            movie.setPrice(10000);
 
-            Team team = new Team();
-            team.setName("TeamA");
-            em.persist(team);
+            em.persist(movie);
 
-            Member member = new Member();
-            member.setUsername("member1");
-            member.changeTeam(team);
-            em.persist(member);
+            em.flush();
+            em.clear();
 
-//
-//            em.flush();
-//            em.clear();
-
-            Team findTeam = em.find(Team.class, team.getId());
-            List<Member> members = findTeam.getMembers();
-
-
-
+            Item item = em.find(Item.class,movie.getId());
+            System.out.println("item = " + item);
 
 
             System.out.println("=============================");

@@ -1,19 +1,17 @@
-package jpabook.jpashop.domain;
+package hellojpa;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
-public class Item {
+@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
+@DiscriminatorColumn
+public abstract class Item {
+
     @Id @GeneratedValue
-    @Column(name="ITEM_ID")
     private Long id;
 
     private String name;
     private int price;
-    private int stockQuantity;
 
     public Long getId() {
         return id;
@@ -37,13 +35,5 @@ public class Item {
 
     public void setPrice(int price) {
         this.price = price;
-    }
-
-    public int getStockQuantity() {
-        return stockQuantity;
-    }
-
-    public void setStockQuantity(int stockQuantity) {
-        this.stockQuantity = stockQuantity;
     }
 }

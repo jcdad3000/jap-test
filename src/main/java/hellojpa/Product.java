@@ -5,15 +5,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-public class Team {
+public class Product {
 
-    @Id
-    @GeneratedValue
-    @Column(name="TEAM_ID")
+    @Id @GeneratedValue
     private Long id;
 
     private String name;
-
 
     public Long getId() {
         return id;
@@ -30,6 +27,4 @@ public class Team {
     public void setName(String name) {
         this.name = name;
     }
-
-
 }
