@@ -44,7 +44,8 @@ public class JpaMain {
 
             System.out.println("m1 = " + m1.getTeam().getClass());
 
-            m1.getTeam().getName();
+            System.out.println("m1 = " + m1.getTeam().getName());
+            
 
             System.out.println("=============================");
             tx.commit();
