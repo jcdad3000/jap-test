@@ -23,8 +23,13 @@ public class JpaMain {
 
             System.out.println("=============================");
 
+            Team team = new Team();
+            team.setName("teamA");
+            em.persist(team);
+
             Member member = new Member();
             member.setUsername("A");
+            member.setTeam(team);
             em.persist(member);
 
             Member member2 = new Member();
@@ -35,11 +40,11 @@ public class JpaMain {
             em.clear();
 
 
-            Member m1 = em.getReference(Member.class, member.getId());
-            System.out.println("m1 = " + m1.getClass());
-            Hibernate.initialize(m1);
-            System.out.println("emf.getPersistenceUnitUtil().isLoaded(m1) = " + emf.getPersistenceUnitUtil().isLoaded(m1));
+            Member m1 = em.find(Member.class, member.getId());
 
+            System.out.println("m1 = " + m1.getTeam().getClass());
+
+            m1.getTeam().getName();
 
             System.out.println("=============================");
             tx.commit();
