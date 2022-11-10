@@ -1,13 +1,12 @@
-package hellojpa;
+package jpql;
 
 import javax.persistence.Embeddable;
 
 @Embeddable
 public class Address {
-    //주소
     private String city;
-    private String zipcode;
     private String street;
+    private String zipcode;
 
     public String getCity() {
         return city;
@@ -15,14 +14,6 @@ public class Address {
 
     public void setCity(String city) {
         this.city = city;
-    }
-
-    public String getZipcode() {
-        return zipcode;
-    }
-
-    public void setZipcode(String zipcode) {
-        this.zipcode = zipcode;
     }
 
     public String getStreet() {
@@ -33,12 +24,11 @@ public class Address {
         this.street = street;
     }
 
-    public Address(String city, String zipcode, String street) {
-        this.city = city;
-        this.zipcode = zipcode;
-        this.street = street;
+    public String getZipcode() {
+        return zipcode;
     }
 
-    public Address() {
+    public void setZipcode(String zipcode) {
+        this.zipcode = zipcode;
     }
 }
