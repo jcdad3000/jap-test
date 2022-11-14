@@ -3,6 +3,7 @@ package jpql;
 import javax.persistence.*;
 
 @Entity
+@NamedQuery(name="Member.findByUsername",query = "select m from Member m")
 public class Member {
     @Id @GeneratedValue
     private Long id;
